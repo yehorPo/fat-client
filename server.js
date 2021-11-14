@@ -14,7 +14,9 @@ const corsOptions = {
   
 app.use(express.json());
 app.use('/api', router);
-
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome" });
+  });
 async function start() {
     try {
         await mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true });
